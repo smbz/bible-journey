@@ -1,0 +1,22 @@
+# Development files
+*.py~
+SESSION_SUMMARY.md
+
+# Downloaded Bible texts and archives
+bsb.txt
+kjv.txt
+*.zip
+web_html/
+web_usfm/
+
+# Parsing scripts and intermediate files
+parse_bsb.py
+parse_bsb_manual.py
+parse_mark.py
+parse_mark_v2.py
+mark.txt
+mark3_bsb.txt
+mark3_web.txt
+
+# Keep only the main parser
+# parse_bsb_book.py - included

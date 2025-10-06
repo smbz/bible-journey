@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Reading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+    <header id="book-header">
+        <h1 id="book-title">Loading...</h1>
+        <p class="subtitle">Berean Standard Bible</p>
+        <p class="attribution">
+            Scripture quotations from the <a href="https://berean.bible/" target="_blank" rel="noopener">Berean Standard Bible</a>,
+            which has been dedicated to the public domain.
+        </p>
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">← Home</a>
+            <a href="#" id="progress-link" class="nav-link">View Your Journey</a>
+            <a href="events.html" class="nav-link">Moments Discovered</a>
+        </nav>
+    </header>
+
+    <main id="content">
+        <!-- Chapters will be dynamically inserted here -->
+    </main>
+
+    <!-- Events Unlocked Overlay -->
+    <div class="events-overlay" id="events-overlay">
+        <div class="events-unlocked-container">
+            <div class="events-unlocked-header">
+                <h2>Moments Unlocked!</h2>
+                <p id="overlay-chapter-title"></p>
+            </div>
+            <div class="unlocked-events-list" id="unlocked-events-list">
+                <!-- Events will be dynamically inserted here -->
+            </div>
+            <button class="events-overlay-close" onclick="closeEventsOverlay()">Continue Reading</button>
+        </div>
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">🏠</span>
+            <span class="bottom-nav-label">Home</span>
+        </a>
+        <a href="#" id="nav-read" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">📖</span>
+            <span class="bottom-nav-label">Read</span>
+        </a>
+        <a href="#" id="nav-journey" class="bottom-nav-item">
+            <span class="bottom-nav-icon">🗺️</span>
+            <span class="bottom-nav-label">Journey</span>
+        </a>
+        <a href="events.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">✨</span>
+            <span class="bottom-nav-label">Moments</span>
+        </a>
+    </nav>
+
+    <script src="books-data.js"></script>
+    <script src="events-data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Update header and navigation based on current book
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('book') || 'mark';
+            const book = getBook(bookId);
+
+            if (book) {
+                document.getElementById('book-title').textContent = book.name;
+                document.title = `${book.name} - Bible Reading`;
+                document.getElementById('progress-link').href = `progress.html?book=${bookId}`;
+            }
+
+            // Update smart navigation links
+            document.getElementById('nav-read').href = getSmartReadingURL();
+            document.getElementById('nav-journey').href = getSmartJourneyURL();
+        });
+    </script>
+</body>
+</html>

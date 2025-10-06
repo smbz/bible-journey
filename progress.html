@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Reading Journey - Bible Reading</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="progress.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+    <header>
+        <h1 id="journey-title">Your Reading Journey</h1>
+        <p class="subtitle">Follow the path as you read</p>
+        <nav class="page-nav">
+            <a href="index.html" class="nav-link">← Home</a>
+            <a href="#" id="book-link" class="nav-link">Read Book</a>
+            <a href="events.html" class="nav-link">Moments Discovered</a>
+        </nav>
+    </header>
+
+    <main id="journey-container">
+        <svg id="journey-map" viewBox="0 0 400 2000" xmlns="http://www.w3.org/2000/svg">
+            <!-- Decorative grass tufts (scaled 4x) -->
+            <g class="decoration grass">
+                <path d="M 30 150 Q 22 130 14 150 M 38 150 Q 30 130 22 150 M 46 150 Q 38 130 30 150" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 350 300 Q 342 280 334 300 M 358 300 Q 350 280 342 300 M 366 300 Q 358 280 350 300" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 60 500 Q 52 480 44 500 M 68 500 Q 60 480 52 500 M 76 500 Q 68 480 60 500" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 340 700 Q 332 680 324 700 M 348 700 Q 340 680 332 700 M 356 700 Q 348 680 340 700" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 50 900 Q 42 880 34 900 M 58 900 Q 50 880 42 900 M 66 900 Q 58 880 50 900" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 360 1100 Q 352 1080 344 1100 M 368 1100 Q 360 1080 352 1100 M 376 1100 Q 368 1080 360 1100" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 40 1300 Q 32 1280 24 1300 M 48 1300 Q 40 1280 32 1300 M 56 1300 Q 48 1280 40 1300" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 350 1500 Q 342 1480 334 1500 M 358 1500 Q 350 1480 342 1500 M 366 1500 Q 358 1480 350 1500" stroke="#8b7355" fill="none" stroke-width="2"/>
+                <path d="M 70 1700 Q 62 1680 54 1700 M 78 1700 Q 70 1680 62 1700 M 86 1700 Q 78 1680 70 1700" stroke="#8b7355" fill="none" stroke-width="2"/>
+            </g>
+
+            <!-- Small stones (scaled 4x) -->
+            <g class="decoration stones">
+                <circle cx="45" cy="250" r="10" fill="#a0927a"/>
+                <circle cx="50" cy="258" r="8" fill="#a0927a"/>
+                <circle cx="355" cy="450" r="10" fill="#a0927a"/>
+                <circle cx="360" cy="442" r="8" fill="#a0927a"/>
+                <circle cx="55" cy="650" r="10" fill="#a0927a"/>
+                <circle cx="60" cy="658" r="8" fill="#a0927a"/>
+                <circle cx="350" cy="850" r="10" fill="#a0927a"/>
+                <circle cx="345" cy="858" r="8" fill="#a0927a"/>
+                <circle cx="65" cy="1050" r="10" fill="#a0927a"/>
+                <circle cx="70" cy="1042" r="8" fill="#a0927a"/>
+                <circle cx="345" cy="1250" r="10" fill="#a0927a"/>
+                <circle cx="350" cy="1258" r="8" fill="#a0927a"/>
+                <circle cx="60" cy="1450" r="10" fill="#a0927a"/>
+                <circle cx="55" cy="1442" r="8" fill="#a0927a"/>
+                <circle cx="355" cy="1650" r="10" fill="#a0927a"/>
+                <circle cx="360" cy="1658" r="8" fill="#a0927a"/>
+            </g>
+
+            <!-- The winding path -->
+            <path id="main-path"
+                  d="M 200 50
+                     Q 280 150 200 250
+                     Q 120 350 200 450
+                     Q 280 550 200 650
+                     Q 120 750 200 850
+                     Q 280 950 200 1050
+                     Q 120 1150 200 1250
+                     Q 280 1350 200 1450
+                     Q 120 1550 200 1650
+                     Q 280 1750 200 1950"
+                  stroke="#c4bfb5"
+                  stroke-width="30"
+                  fill="none"
+                  stroke-linecap="round"/>
+
+            <!-- Path edges for texture -->
+            <path d="M 200 50
+                     Q 280 150 200 250
+                     Q 120 350 200 450
+                     Q 280 550 200 650
+                     Q 120 750 200 850
+                     Q 280 950 200 1050
+                     Q 120 1150 200 1250
+                     Q 280 1350 200 1450
+                     Q 120 1550 200 1650
+                     Q 280 1750 200 1950"
+                  stroke="#8b7355"
+                  stroke-width="32"
+                  fill="none"
+                  stroke-linecap="round"
+                  opacity="0.3"/>
+
+            <!-- Chapter waypoints will be added by JavaScript -->
+            <g id="chapter-markers"></g>
+        </svg>
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">🏠</span>
+            <span class="bottom-nav-label">Home</span>
+        </a>
+        <a href="#" id="nav-read" class="bottom-nav-item">
+            <span class="bottom-nav-icon">📖</span>
+            <span class="bottom-nav-label">Read</span>
+        </a>
+        <a href="#" id="nav-journey" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">🗺️</span>
+            <span class="bottom-nav-label">Journey</span>
+        </a>
+        <a href="events.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">✨</span>
+            <span class="bottom-nav-label">Moments</span>
+        </a>
+    </nav>
+
+    <script src="books-data.js"></script>
+    <script src="script.js"></script>
+    <script src="progress.js"></script>
+    <script>
+        // Update header and navigation based on current book
+        document.addEventListener('DOMContentLoaded', () => {
+            const urlParams = new URLSearchParams(window.location.search);
+            const bookId = urlParams.get('book') || 'mark';
+            const book = getBook(bookId);
+
+            if (book) {
+                document.getElementById('journey-title').textContent = `Your Journey Through ${book.shortName}`;
+                document.title = `Journey Through ${book.shortName} - Bible Reading`;
+                document.getElementById('book-link').href = `book.html?book=${bookId}`;
+            }
+
+            // Update smart navigation links
+            document.getElementById('nav-read').href = getSmartReadingURL();
+            document.getElementById('nav-journey').href = getSmartJourneyURL();
+        });
+    </script>
+</body>
+</html>

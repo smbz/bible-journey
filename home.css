@@ -1,0 +1,224 @@
+/* Homepage specific styles */
+
+.home-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+.welcome-section {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background-color: #f0ede5;
+    border-radius: 8px;
+}
+
+.welcome-section h2 {
+    font-size: 1.8rem;
+    color: #1a1510;
+    margin-bottom: 1rem;
+}
+
+.welcome-section p {
+    font-size: 1.1rem;
+    color: #6b6355;
+    line-height: 1.6;
+}
+
+.books-section {
+    margin-bottom: 3rem;
+}
+
+.books-section h2 {
+    font-size: 1.6rem;
+    color: #1a1510;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+/* Books Grid */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.book-card {
+    background-color: #ffffff;
+    border: 2px solid #d4cfc0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    border-color: #8b7355;
+}
+
+.book-card.started {
+    border-color: #8b7355;
+    background-color: #fefdfb;
+}
+
+.book-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.book-name {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1a1510;
+}
+
+.book-chapters {
+    font-size: 0.9rem;
+    color: #6b6355;
+}
+
+.book-progress {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e8e5dc;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #8b7355;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 0.85rem;
+    color: #6b6355;
+}
+
+.book-actions {
+    margin-top: auto;
+}
+
+.book-action-text {
+    font-size: 1rem;
+    color: #6b5335;
+    font-weight: 600;
+}
+
+.book-card:hover .book-action-text {
+    color: #4a3825;
+}
+
+/* Quick Links Section */
+.quick-links {
+    margin-bottom: 2rem;
+}
+
+.quick-links h2 {
+    font-size: 1.6rem;
+    color: #1a1510;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.link-card {
+    background-color: #f0ede5;
+    border: 2px solid #d4cfc0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.link-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #8b7355;
+}
+
+.link-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.link-card h3 {
+    font-size: 1.2rem;
+    color: #1a1510;
+    margin-bottom: 0.5rem;
+}
+
+.link-card p {
+    font-size: 0.9rem;
+    color: #6b6355;
+}
+
+/* Footer */
+.home-footer {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid #d4cfc0;
+    margin-top: 2rem;
+}
+
+.home-footer .attribution {
+    font-size: 0.85rem;
+    color: #8b7355;
+}
+
+.home-footer .attribution a {
+    color: #6b5335;
+    text-decoration: none;
+    border-bottom: 1px solid #d4cfc0;
+}
+
+.home-footer .attribution a:hover {
+    color: #4a3825;
+    border-bottom-color: #8b7355;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .home-container {
+        padding: 1.5rem 1rem 3rem;
+    }
+
+    .books-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .links-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .welcome-section p {
+        font-size: 1rem;
+    }
+}

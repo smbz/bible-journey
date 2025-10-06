@@ -1,0 +1,225 @@
+/* Events Page - Achievement/Gamified Styling */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Crimson Text', Georgia, serif;
+    background-color: #faf8f3;
+    color: #2c2416;
+    padding: 0;
+    margin: 0;
+}
+
+/* Header */
+header {
+    background-color: #f0ede5;
+    border-bottom: 2px solid #d4cfc0;
+    padding: 2rem 1.5rem 1.5rem;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1a1510;
+    margin-bottom: 0.3rem;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #6b6355;
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Navigation */
+.page-nav {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.nav-link {
+    display: inline-block;
+    color: #6b5335;
+    text-decoration: none;
+    font-size: 0.95rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d4cfc0;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background-color: #e8e5dc;
+    border-color: #8b7355;
+    color: #4a3825;
+}
+
+/* Main Container */
+#events-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+}
+
+/* Summary */
+.events-summary {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: #f0ede5;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.summary-text {
+    font-size: 1.2rem;
+    color: #1a1510;
+    font-weight: 600;
+}
+
+#discovered-count {
+    color: #8b7355;
+    font-size: 1.4rem;
+}
+
+/* Events Grid */
+#events-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+/* Event Card */
+.event-card {
+    background-color: #ffffff;
+    border: 2px solid #d4cfc0;
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.event-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #8b7355;
+}
+
+/* Event Icon Placeholder */
+.event-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #f0ede5;
+    border: 3px solid #8b7355;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #8b7355;
+}
+
+/* Event Title */
+.event-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1a1510;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+/* Event locations */
+.event-locations {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    justify-content: center;
+}
+
+/* Chapter Reference (clickable link) */
+.event-reference {
+    font-size: 0.85rem;
+    color: #6b5335;
+    text-decoration: none;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #d4cfc0;
+    border-radius: 4px;
+    display: inline-block;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+.event-reference:hover {
+    background-color: #e8e5dc;
+    border-color: #8b7355;
+    color: #4a3825;
+}
+
+/* Unread location (grayed out) */
+.event-reference-unread {
+    font-size: 0.85rem;
+    color: #a0927a;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid #e8e5dc;
+    border-radius: 4px;
+    display: inline-block;
+    background-color: #f9f8f5;
+}
+
+/* Achievement Badge */
+.achievement-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #8b7355;
+    color: #faf8f3;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    header h1 {
+        font-size: 1.7rem;
+    }
+
+    #events-container {
+        padding: 1.5rem 1rem 3rem;
+    }
+}
+
+@media (min-width: 768px) {
+    #events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    #events-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

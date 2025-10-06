@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bible Reading Journey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+    <header>
+        <h1>Bible Reading Journey</h1>
+        <p class="subtitle">Discover the Scriptures through reading and reflection</p>
+    </header>
+
+    <main class="home-container">
+        <section class="welcome-section">
+            <h2>Welcome</h2>
+            <p>Begin your journey through the Bible, one chapter at a time. Track your progress, unlock significant moments, and deepen your understanding.</p>
+        </section>
+
+        <section class="books-section">
+            <h2>Choose a Book</h2>
+            <div id="books-grid" class="books-grid">
+                <!-- Books will be dynamically inserted here -->
+            </div>
+        </section>
+
+        <section class="quick-links">
+            <h2>Explore</h2>
+            <div class="links-grid">
+                <a href="events.html" class="link-card">
+                    <span class="link-icon">✨</span>
+                    <h3>Moments Discovered</h3>
+                    <p>View significant events you've encountered</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="home-footer">
+        <p class="attribution">
+            Scripture quotations from the <a href="https://berean.bible/" target="_blank" rel="noopener">Berean Standard Bible</a>,
+            which has been dedicated to the public domain.
+        </p>
+    </footer>
+
+    <!-- Bottom Navigation -->
+    <nav class="bottom-nav">
+        <a href="index.html" class="bottom-nav-item active">
+            <span class="bottom-nav-icon">🏠</span>
+            <span class="bottom-nav-label">Home</span>
+        </a>
+        <a href="#" id="nav-read" class="bottom-nav-item">
+            <span class="bottom-nav-icon">📖</span>
+            <span class="bottom-nav-label">Read</span>
+        </a>
+        <a href="#" id="nav-journey" class="bottom-nav-item">
+            <span class="bottom-nav-icon">🗺️</span>
+            <span class="bottom-nav-label">Journey</span>
+        </a>
+        <a href="events.html" class="bottom-nav-item">
+            <span class="bottom-nav-icon">✨</span>
+            <span class="bottom-nav-label">Moments</span>
+        </a>
+    </nav>
+
+    <script src="books-data.js"></script>
+    <script src="script.js"></script>
+    <script>
+        // Render book cards
+        function renderBooks() {
+            const grid = document.getElementById('books-grid');
+            const allRead = getAllReadChapters();
+
+            bibleBooks.forEach(book => {
+                const readChapters = allRead[book.id] || [];
+                const progress = readChapters.length;
+                const total = book.chapters;
+                const percentage = Math.round((progress / total) * 100);
+                const isStarted = progress > 0;
+
+                const card = document.createElement('a');
+                card.href = `book.html?book=${book.id}`;
+                card.className = 'book-card' + (isStarted ? ' started' : '');
+
+                card.innerHTML = `
+                    <div class="book-card-header">
+                        <h3 class="book-name">${book.name}</h3>
+                        <span class="book-chapters">${book.chapters} chapters</span>
+                    </div>
+                    <div class="book-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: ${percentage}%"></div>
+                        </div>
+                        <span class="progress-text">${progress} of ${total} chapters</span>
+                    </div>
+                    <div class="book-actions">
+                        <span class="book-action-text">${isStarted ? 'Continue Reading →' : 'Start Reading →'}</span>
+                    </div>
+                `;
+
+                grid.appendChild(card);
+            });
+        }
+
+        // Update smart navigation links
+        function updateNavigation() {
+            document.getElementById('nav-read').href = getSmartReadingURL();
+            document.getElementById('nav-journey').href = getSmartJourneyURL();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            renderBooks();
+            updateNavigation();
+        });
+    </script>
+</body>
+</html>
