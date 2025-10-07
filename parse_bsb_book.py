@@ -29,12 +29,11 @@ BOOK_CONFIGS = {
                 [12, 13],         # Temptation
                 [14, 15],         # Beginning of ministry
                 [16, 17, 18],     # Calling first disciples
-                [19, 20],         # Capernaum synagogue
-                [21, 22, 28],     # Healing Peter's mother-in-law
-                [23, 24, 25, 26, 27], # Evening healings
-                [29, 31],         # Healing many
-                [32, 34],         # Morning prayer
-                [35, 36, 37, 38, 39], # Preaching tour
+                [19, 20],         # James and John called
+                [21, 22, 23, 24, 25, 26, 27, 28], # Demon in synagogue
+                [29, 30, 31],     # Peter's mother-in-law healed
+                [32, 33, 34],     # Evening healings
+                [35, 36, 37, 38, 39], # Morning prayer and preaching
                 [40, 41, 42, 43, 44, 45] # Healing leper
             ],
             2: [

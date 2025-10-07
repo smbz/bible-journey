@@ -109,12 +109,6 @@ const bookData = [
           "text": "The people were astonished at His teaching, because He taught as one who had authority, and not as the scribes."
         },
         {
-          "number": 28,
-          "text": "And the news about Jesus spread quickly through the whole region of Galilee."
-        }
-      ],
-      [
-        {
           "number": 23,
           "text": "Suddenly a man with an unclean spirit cried out in the synagogue:"
         },
@@ -133,12 +127,20 @@ const bookData = [
         {
           "number": 27,
           "text": "All the people were amazed and began to ask one another, “What is this? A new teaching with authority! He commands even the unclean spirits, and they obey Him!”"
+        },
+        {
+          "number": 28,
+          "text": "And the news about Jesus spread quickly through the whole region of Galilee."
         }
       ],
       [
         {
           "number": 29,
           "text": "As soon as Jesus and His companions had left the synagogue, they went with James and John to the home of Simon and Andrew."
+        },
+        {
+          "number": 30,
+          "text": "Simon’s mother-in-law was sick in bed with a fever, and they promptly told Jesus about her."
         },
         {
           "number": 31,
@@ -149,6 +151,10 @@ const bookData = [
         {
           "number": 32,
           "text": "That evening, after sunset, people brought to Jesus all the sick and demon-possessed,"
+        },
+        {
+          "number": 33,
+          "text": "and the whole town gathered at the door."
         },
         {
           "number": 34,
