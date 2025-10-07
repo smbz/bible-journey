@@ -2089,10 +2089,6 @@ const bookData = [
         {
           "number": 42,
           "text": "Even while the boy was approaching, the demon slammed him to the ground in a convulsion. But Jesus rebuked the unclean spirit, healed the boy, and gave him back to his father."
-        },
-        {
-          "number": 43,
-          "text": "And they were all astonished at the greatness of God. While everyone was marveling at all that Jesus was doing, He said to His disciples,"
         }
       ],
       [
