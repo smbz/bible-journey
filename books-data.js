@@ -13,6 +13,13 @@ const bibleBooks = [
         shortName: "Luke",
         chapters: 24,
         dataFile: "data-luke.js"
+    },
+    {
+        id: "romans",
+        name: "Romans",
+        shortName: "Romans",
+        chapters: 16,
+        dataFile: "data-romans.js"
     }
     // Future books can be added here:
     // { id: "matthew", name: "Gospel of Matthew", shortName: "Matthew", chapters: 28, dataFile: "data-matthew.js" },

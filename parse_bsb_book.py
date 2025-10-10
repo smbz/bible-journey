@@ -75,6 +75,32 @@ BOOK_CONFIGS = {
             23: [1, 6, 8, 13, 17, 26, 27, 32, 34, 35, 38, 39, 44, 46, 47, 50, 54],
             24: [1, 4, 8, 13, 18, 22, 25, 28, 30, 33, 36, 44, 50, 52]
         }
+    },
+    'romans': {
+        'full_name': 'Romans',
+        'short_name': 'Romans',
+        'start_pattern': r'^Romans 1:1',
+        'end_pattern': r'^1 Corinthians 1:1',
+        'chapters': 16,
+        'paragraph_structure': {
+            # Structured based on Paul's theological arguments
+            1: [1, 8, 13, 16, 18, 24, 28],  # Greeting, thanksgiving, gospel power, God's wrath, judgment
+            2: [1, 6, 12, 17, 25],  # Judgment without partiality, law and circumcision
+            3: [1, 5, 9, 19, 21, 27],  # God's faithfulness, universal sin, justification by faith
+            4: [1, 4, 9, 13, 16, 23],  # Abraham justified by faith, promise to all
+            5: [1, 6, 12],  # Peace with God, reconciliation, Adam and Christ
+            6: [1, 6, 12, 15, 20],  # Dead to sin, alive to God, slaves to righteousness
+            7: [1, 4, 7, 13, 21],  # Released from the law, struggle with sin
+            8: [1, 5, 12, 18, 28, 31],  # Life in the Spirit, future glory, more than conquerors
+            9: [1, 6, 14, 19, 25, 30],  # Israel's rejection, God's sovereignty, stumbling stone
+            10: [1, 5, 11, 14],  # Israel's zeal, righteousness from faith, proclamation
+            11: [1, 7, 13, 17, 25, 33],  # Remnant, Israel's stumbling, restoration, mystery
+            12: [1, 3, 9, 14],  # Living sacrifice, spiritual gifts, love in action, practical duties
+            13: [1, 8, 11],  # Submit to authorities, love fulfills law, salvation near
+            14: [1, 5, 10, 13, 19],  # Accept the weak, don't judge, don't cause stumbling
+            15: [1, 5, 14, 22, 30],  # Bear with weak, Paul's ministry, travel plans, prayer request
+            16: [1, 3, 8, 17, 21, 25]  # Commend Phoebe, greetings, warnings, final greetings, doxology
+        }
     }
 }
 
