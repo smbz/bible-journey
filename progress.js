@@ -41,7 +41,7 @@ function createChapterMarkers() {
         circle.classList.add('chapter-circle');
         circle.setAttribute('cx', pos.x);
         circle.setAttribute('cy', pos.y);
-        circle.setAttribute('r', '22');
+        circle.setAttribute('r', '33');
         marker.appendChild(circle);
 
         // Chapter number or checkmark
@@ -84,31 +84,77 @@ function navigateToChapter(chapterNum) {
     window.location.href = `book.html?book=${progressBookId}#chapter-${chapterNum}`;
 }
 
-// Update progress summary
+// Update progress summary in header
 function updateProgressSummary() {
     const readChapters = getReadChapters(progressBookId);
     const total = progressBook.chapters;
     const completed = readChapters.length;
     const percentage = Math.round((completed / total) * 100);
 
-    // Create or update progress summary
-    let summary = document.querySelector('.progress-summary');
-    if (!summary) {
-        summary = document.createElement('div');
-        summary.className = 'progress-summary';
-        document.getElementById('journey-container').insertBefore(
-            summary,
-            document.getElementById('journey-map')
-        );
+    // Update subtitle text
+    const subtitle = document.getElementById('progress-subtitle');
+    if (subtitle) {
+        subtitle.textContent = `${completed} of ${total} chapters read`;
     }
 
-    summary.innerHTML = `
-        <h2>Your Progress</h2>
-        <p class="progress-text">${completed} of ${total} chapters completed</p>
-        <div class="progress-bar">
-            <div class="progress-fill" style="width: ${percentage}%"></div>
-        </div>
-    `;
+    // Update progress bar
+    const progressFill = document.getElementById('header-progress-fill');
+    if (progressFill) {
+        progressFill.style.width = `${percentage}%`;
+    }
+}
+
+// Populate book modal
+function populateBookModal() {
+    const bookList = document.getElementById('book-list');
+    const modal = document.getElementById('book-modal');
+    const bookshelfButton = document.getElementById('bookshelf-button');
+    const closeButton = document.getElementById('close-modal');
+
+    if (!bookList || !modal || !bookshelfButton) return;
+
+    // Populate book list
+    bibleBooks.forEach(book => {
+        const item = document.createElement('a');
+        item.href = `progress.html?book=${book.id}`;
+        item.className = 'book-list-item';
+        if (book.id === progressBookId) {
+            item.classList.add('current');
+        }
+
+        item.innerHTML = `
+            <div class="book-list-item-name">${book.name}</div>
+            <div class="book-list-item-chapters">${book.chapters} chapters</div>
+        `;
+
+        bookList.appendChild(item);
+    });
+
+    // Open modal
+    bookshelfButton.addEventListener('click', () => {
+        modal.classList.add('visible');
+    });
+
+    // Close modal
+    const closeModal = () => {
+        modal.classList.remove('visible');
+    };
+
+    closeButton.addEventListener('click', closeModal);
+
+    // Close on background click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal.classList.contains('visible')) {
+            closeModal();
+        }
+    });
 }
 
 // Initialize the journey map
@@ -123,6 +169,7 @@ function initializeJourneyMap() {
         return;
     }
 
+    populateBookModal();
     createChapterMarkers();
     updateProgressSummary();
 }

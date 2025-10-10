@@ -84,8 +84,17 @@
                 const percentage = Math.round((progress / total) * 100);
                 const isStarted = progress > 0;
 
+                // Find first unread chapter
+                let firstUnread = 1;
+                for (let i = 1; i <= book.chapters; i++) {
+                    if (!readChapters.includes(i)) {
+                        firstUnread = i;
+                        break;
+                    }
+                }
+
                 const card = document.createElement('a');
-                card.href = `book.html?book=${book.id}`;
+                card.href = `book.html?book=${book.id}#chapter-${firstUnread}`;
                 card.className = 'book-card' + (isStarted ? ' started' : '');
 
                 card.innerHTML = `

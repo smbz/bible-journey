@@ -7,17 +7,17 @@
 }
 
 body {
-    font-family: 'Crimson Text', Georgia, serif;
-    background-color: #faf8f3;
-    color: #2c2416;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background-color: #ffffff;
+    color: #0f172a;
     padding: 0;
     margin: 0;
 }
 
 /* Header */
 header {
-    background-color: #f0ede5;
-    border-bottom: 2px solid #d4cfc0;
+    background-color: #f0fdfa;
+    border-bottom: 2px solid #d1fae5;
     padding: 2rem 1.5rem 1.5rem;
     text-align: center;
     position: sticky;
@@ -25,18 +25,177 @@ header {
     z-index: 100;
 }
 
+/* Bookshelf Button */
+.bookshelf-button {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: #ffffff;
+    border: 2px solid #d1fae5;
+    border-radius: 8px;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.bookshelf-button:hover {
+    background-color: #f0fdfa;
+    border-color: #14b8a6;
+    transform: translateY(-1px);
+}
+
+.bookshelf-button:focus {
+    outline: none;
+    border-color: #14b8a6;
+    box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.1);
+}
+
+/* Book Modal */
+.book-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.book-modal.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.book-modal-content {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 0;
+    max-width: 500px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+}
+
+.book-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.book-modal-header h2 {
+    font-size: 1.5rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin: 0;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #64748b;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease;
+}
+
+.close-modal:hover {
+    color: #0f172a;
+}
+
+.book-list {
+    overflow-y: auto;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.book-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    color: inherit;
+}
+
+.book-list-item:hover {
+    background-color: #f0fdfa;
+    border-color: #14b8a6;
+    transform: translateX(4px);
+}
+
+.book-list-item.current {
+    background-color: #f0fdfa;
+    border-color: #14b8a6;
+}
+
+.book-list-item-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.book-list-item-chapters {
+    font-size: 0.9rem;
+    color: #64748b;
+}
+
 header h1 {
     font-size: 2rem;
-    font-weight: 600;
-    color: #1a1510;
+    font-weight: 700;
+    color: #0f172a;
     margin-bottom: 0.3rem;
 }
 
 .subtitle {
     font-size: 0.95rem;
-    color: #6b6355;
-    font-style: italic;
-    margin-bottom: 1rem;
+    color: #475569;
+    font-style: normal;
+    margin-bottom: 0.75rem;
+}
+
+/* Progress bar in header */
+header .progress-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 10px;
+    background-color: #e2e8f0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 0.75rem auto 1rem;
+}
+
+header .progress-fill {
+    height: 100%;
+    background-color: #14b8a6;
+    border-radius: 5px;
+    transition: width 0.5s ease;
 }
 
 /* Navigation */
@@ -46,19 +205,20 @@ header h1 {
 
 .nav-link {
     display: inline-block;
-    color: #6b5335;
+    color: #14b8a6;
     text-decoration: none;
     font-size: 0.95rem;
     padding: 0.5rem 1rem;
-    border: 1px solid #d4cfc0;
-    border-radius: 4px;
+    border: 1px solid #d1fae5;
+    border-radius: 8px;
     transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 .nav-link:hover {
-    background-color: #e8e5dc;
-    border-color: #8b7355;
-    color: #4a3825;
+    background-color: #f0fdfa;
+    border-color: #14b8a6;
+    color: #0d9488;
 }
 
 /* Journey Container */
@@ -78,7 +238,7 @@ header h1 {
 
 /* Decorative elements */
 .decoration {
-    opacity: 0.6;
+    opacity: 0.4;
 }
 
 /* Chapter Markers */
@@ -93,35 +253,35 @@ header h1 {
 }
 
 .chapter-marker:hover .chapter-number {
-    font-weight: 600;
+    font-weight: 700;
 }
 
 /* Unread chapter */
 .chapter-marker.unread .chapter-circle {
-    fill: #faf8f3;
-    stroke: #8b7355;
+    fill: #ffffff;
+    stroke: #cbd5e1;
     stroke-width: 2;
 }
 
 .chapter-marker.unread .chapter-number {
-    fill: #8b7355;
+    fill: #64748b;
 }
 
 /* Read chapter */
 .chapter-marker.read .chapter-circle {
-    fill: #8b7355;
-    stroke: #6b5335;
+    fill: #14b8a6;
+    stroke: #0d9488;
     stroke-width: 2;
 }
 
 .chapter-marker.read .chapter-number {
-    fill: #faf8f3;
+    fill: #ffffff;
 }
 
 /* Checkmark for completed chapters */
 .chapter-checkmark {
     fill: none;
-    stroke: #faf8f3;
+    stroke: #ffffff;
     stroke-width: 2.5;
     stroke-linecap: round;
     stroke-linejoin: round;
@@ -129,8 +289,8 @@ header h1 {
 
 /* Chapter number text */
 .chapter-number {
-    font-family: 'Crimson Text', Georgia, serif;
-    font-size: 20px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-size: 30px;
     font-weight: 600;
     text-anchor: middle;
     dominant-baseline: middle;
@@ -141,28 +301,29 @@ header h1 {
 .progress-summary {
     text-align: center;
     padding: 2rem 1.5rem;
-    background-color: #f0ede5;
-    border-radius: 8px;
+    background-color: #f0fdfa;
+    border-radius: 12px;
     margin: 2rem auto;
     max-width: 400px;
 }
 
 .progress-summary h2 {
     font-size: 1.5rem;
-    color: #1a1510;
+    color: #0f172a;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .progress-text {
     font-size: 1.1rem;
-    color: #6b6355;
+    color: #475569;
     margin-bottom: 0.5rem;
 }
 
 .progress-bar {
     width: 100%;
     height: 12px;
-    background-color: #d4cfc0;
+    background-color: #e2e8f0;
     border-radius: 6px;
     overflow: hidden;
     margin-top: 1rem;
@@ -170,7 +331,7 @@ header h1 {
 
 .progress-fill {
     height: 100%;
-    background-color: #8b7355;
+    background-color: #14b8a6;
     border-radius: 6px;
     transition: width 0.5s ease;
 }
@@ -186,7 +347,7 @@ header h1 {
     }
 
     .chapter-number {
-        font-size: 18px;
+        font-size: 27px;
     }
 }
 
@@ -197,7 +358,7 @@ header h1 {
     }
 
     #journey-map {
-        filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.05));
+        filter: drop-shadow(0 2px 8px rgba(20, 184, 166, 0.1));
     }
 }
 
@@ -210,11 +371,11 @@ body::before {
     right: 0;
     height: 4px;
     background: linear-gradient(90deg,
-        #d4cfc0 0%,
-        #8b7355 25%,
-        #8b7355 50%,
-        #8b7355 75%,
-        #d4cfc0 100%);
+        #d1fae5 0%,
+        #14b8a6 25%,
+        #14b8a6 50%,
+        #14b8a6 75%,
+        #d1fae5 100%);
     opacity: 0.5;
     z-index: 200;
 }

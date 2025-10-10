@@ -167,14 +167,11 @@ function renderBook(bookId, chapters) {
         // Add chapter ID for anchor navigation
         chapterSection.id = `chapter-${chapterData.chapter}`;
 
-        // Chapter header
-        const header = document.createElement('div');
-        header.className = 'chapter-header';
-        header.innerHTML = `
-            <span class="chapter-number">${chapterData.chapter}</span>
-            <h2 class="chapter-title">Chapter ${chapterData.chapter}</h2>
-        `;
-        chapterSection.appendChild(header);
+        // Chapter number (floated, classical style)
+        const chapterNum = document.createElement('div');
+        chapterNum.className = 'chapter-number';
+        chapterNum.textContent = chapterData.chapter;
+        chapterSection.appendChild(chapterNum);
 
         // Paragraphs with continuous verses
         chapterData.paragraphs.forEach(paragraph => {
@@ -444,6 +441,45 @@ function closeEventsOverlay() {
     overlay.classList.remove('visible');
 }
 
+// Update reading progress bar based on scroll position
+function updateReadingProgress() {
+    const progressBar = document.getElementById('reading-progress');
+    const progressText = document.getElementById('progress-text');
+    const header = document.getElementById('book-header');
+
+    if (!progressBar || !progressText || !header) return;
+
+    // Get header bottom position
+    const headerBottom = header.offsetTop + header.offsetHeight;
+
+    // Show progress bar only when scrolled past the header
+    if (window.scrollY > headerBottom) {
+        // Find which chapter is currently visible
+        const chapters = document.querySelectorAll('.chapter');
+        let currentChapter = null;
+
+        for (let chapter of chapters) {
+            const rect = chapter.getBoundingClientRect();
+            // If chapter is in viewport (top is above middle of screen)
+            if (rect.top <= window.innerHeight / 2) {
+                currentChapter = chapter;
+            } else {
+                break;
+            }
+        }
+
+        if (currentChapter) {
+            const chapterNum = currentChapter.dataset.chapter;
+            const book = getBook(currentBookId);
+            const bookName = book ? book.shortName : currentBookId;
+            progressText.textContent = `${bookName} ${chapterNum}`;
+            progressBar.classList.add('visible');
+        }
+    } else {
+        progressBar.classList.remove('visible');
+    }
+}
+
 // Initialize book page when DOM is loaded
 async function initializeBookPage() {
     // Get book ID from URL parameter, default to 'mark'
@@ -462,6 +498,10 @@ async function initializeBookPage() {
 
         // Handle hash navigation (e.g., #chapter-3)
         handleHashNavigation();
+
+        // Initialize reading progress tracking
+        window.addEventListener('scroll', updateReadingProgress, { passive: true });
+        updateReadingProgress(); // Initial check
     } catch (error) {
         console.error('Failed to load book:', error);
         document.getElementById('content').innerHTML = `

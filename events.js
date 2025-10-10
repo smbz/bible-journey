@@ -35,24 +35,24 @@ function renderEvents() {
 
             const readLocs = getReadLocations(event);
 
-            // Build list of all locations with links
+            // Build list of all locations with links (all clickable)
             const locationLinks = event.locations.map(loc => {
                 const book = getBook(loc.book);
                 const bookName = book ? book.shortName : loc.book;
                 const isRead = readLocs.some(r => r.book === loc.book && r.chapter === loc.chapter);
 
-                if (isRead) {
-                    return `<a href="book.html?book=${loc.book}#chapter-${loc.chapter}" class="event-reference">${bookName} ${loc.chapter}</a>`;
-                } else {
-                    return `<span class="event-reference-unread">${bookName} ${loc.chapter}</span>`;
-                }
+                // All references are now clickable links, but unread ones have different styling
+                const className = isRead ? 'event-reference' : 'event-reference event-reference-unread';
+                return `<a href="book.html?book=${loc.book}#chapter-${loc.chapter}" class="${className}">${bookName} ${loc.chapter}</a>`;
             }).join(' ');
 
             card.innerHTML = `
                 <div class="achievement-badge">✓</div>
                 <div class="event-icon">${event.icon}</div>
-                <h3 class="event-title">${event.title}</h3>
-                <div class="event-locations">${locationLinks}</div>
+                <div class="event-content">
+                    <h3 class="event-title">${event.title}</h3>
+                    <div class="event-locations">${locationLinks}</div>
+                </div>
             `;
 
             grid.appendChild(card);

@@ -10,19 +10,20 @@
     text-align: center;
     margin-bottom: 3rem;
     padding: 2rem;
-    background-color: #f0ede5;
-    border-radius: 8px;
+    background-color: #f0fdfa;
+    border-radius: 12px;
 }
 
 .welcome-section h2 {
     font-size: 1.8rem;
-    color: #1a1510;
+    color: #0f172a;
     margin-bottom: 1rem;
+    font-weight: 700;
 }
 
 .welcome-section p {
     font-size: 1.1rem;
-    color: #6b6355;
+    color: #475569;
     line-height: 1.6;
 }
 
@@ -32,9 +33,10 @@
 
 .books-section h2 {
     font-size: 1.6rem;
-    color: #1a1510;
+    color: #0f172a;
     margin-bottom: 1.5rem;
     text-align: center;
+    font-weight: 700;
 }
 
 /* Books Grid */
@@ -46,8 +48,8 @@
 
 .book-card {
     background-color: #ffffff;
-    border: 2px solid #d4cfc0;
-    border-radius: 8px;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
@@ -59,13 +61,13 @@
 
 .book-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
-    border-color: #8b7355;
+    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.15);
+    border-color: #14b8a6;
 }
 
 .book-card.started {
-    border-color: #8b7355;
-    background-color: #fefdfb;
+    border-color: #14b8a6;
+    background-color: #f0fdfa;
 }
 
 .book-card-header {
@@ -77,12 +79,12 @@
 .book-name {
     font-size: 1.3rem;
     font-weight: 600;
-    color: #1a1510;
+    color: #0f172a;
 }
 
 .book-chapters {
     font-size: 0.9rem;
-    color: #6b6355;
+    color: #64748b;
 }
 
 .book-progress {
@@ -94,20 +96,20 @@
 .progress-bar {
     width: 100%;
     height: 8px;
-    background-color: #e8e5dc;
+    background-color: #e2e8f0;
     border-radius: 4px;
     overflow: hidden;
 }
 
 .progress-fill {
     height: 100%;
-    background-color: #8b7355;
+    background-color: #14b8a6;
     transition: width 0.3s ease;
 }
 
 .progress-text {
     font-size: 0.85rem;
-    color: #6b6355;
+    color: #64748b;
 }
 
 .book-actions {
@@ -116,12 +118,12 @@
 
 .book-action-text {
     font-size: 1rem;
-    color: #6b5335;
+    color: #14b8a6;
     font-weight: 600;
 }
 
 .book-card:hover .book-action-text {
-    color: #4a3825;
+    color: #0d9488;
 }
 
 /* Quick Links Section */
@@ -131,9 +133,10 @@
 
 .quick-links h2 {
     font-size: 1.6rem;
-    color: #1a1510;
+    color: #0f172a;
     margin-bottom: 1.5rem;
     text-align: center;
+    font-weight: 700;
 }
 
 .links-grid {
@@ -143,9 +146,9 @@
 }
 
 .link-card {
-    background-color: #f0ede5;
-    border: 2px solid #d4cfc0;
-    border-radius: 8px;
+    background-color: #f8fafc;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
     padding: 1.5rem;
     text-decoration: none;
     color: inherit;
@@ -155,8 +158,8 @@
 
 .link-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    border-color: #8b7355;
+    box-shadow: 0 6px 16px rgba(249, 115, 22, 0.15);
+    border-color: #f97316;
 }
 
 .link-icon {
@@ -167,37 +170,38 @@
 
 .link-card h3 {
     font-size: 1.2rem;
-    color: #1a1510;
+    color: #0f172a;
     margin-bottom: 0.5rem;
+    font-weight: 600;
 }
 
 .link-card p {
     font-size: 0.9rem;
-    color: #6b6355;
+    color: #64748b;
 }
 
 /* Footer */
 .home-footer {
     text-align: center;
     padding: 2rem 1.5rem;
-    border-top: 1px solid #d4cfc0;
+    border-top: 1px solid #e2e8f0;
     margin-top: 2rem;
 }
 
 .home-footer .attribution {
     font-size: 0.85rem;
-    color: #8b7355;
+    color: #64748b;
 }
 
 .home-footer .attribution a {
-    color: #6b5335;
+    color: #14b8a6;
     text-decoration: none;
-    border-bottom: 1px solid #d4cfc0;
+    border-bottom: 1px solid #d1fae5;
 }
 
 .home-footer .attribution a:hover {
-    color: #4a3825;
-    border-bottom-color: #8b7355;
+    color: #0d9488;
+    border-bottom-color: #14b8a6;
 }
 
 /* Responsive */
